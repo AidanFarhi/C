@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main(void) {
+int main(void) 
+{
     // To define a read only string
     char *name = "Aidan Farhi";
     // To define a string that can be manipulated
