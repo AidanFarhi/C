@@ -2,6 +2,11 @@
 #include <string.h>
 #include <math.h>
 
+/* 
+* This program takes in a passage of words from the command line, and calculates
+* the grade level. The formula used is the Coleman-Liau index.
+*/
+
 int count_letters(char s[], int len); // gets count of letters in string
 int count_words(char s[], int len); // gets count of words in string
 int count_sentences(char s[], int len); // gets count of sentences in string
