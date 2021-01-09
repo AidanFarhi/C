@@ -36,6 +36,13 @@ int main(void)
     printf("600 in list: %s\n", search(600) ? "true" : "false");
     // Print the nodes
     show_items();
+    // Cleanup at the end
+    while (head != NULL)
+    {
+        Node *t = head->next;
+        free(head);
+        head = t;
+    }
 }
 
 /* Functions */
