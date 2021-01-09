@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
     traverse_in_order();
     delete_tree();
     traverse_in_order();
+    fclose(test_file);
 }
 
 /* Functions */
