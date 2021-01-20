@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /* Define Node */
-typedef struct Node 
+typedef struct Node
 {
     int data;
     struct Node *next;
@@ -10,41 +10,49 @@ typedef struct Node
 Node;
 
 /* Prototypes */
-void push(int item);
-int pop();
+void enqueue(int item);
+int dequeue();
 void show_items();
 void cleanup();
 
 /* Global variables */
 Node *head = NULL;
+Node *tail = NULL;
 
+/* Test Client */
 int main(void)
 {
-    for (int i = 100; i <= 1000; i += 100)
+    for (int i = 10; i < 20; i++)
     {
-        push(i);
+        enqueue(i);
     }
     show_items();
-    for (int j = 0; j < 5; j++){
-        printf("Item: %i\n", pop());
+    for (int j = 0; j < 5; j++)
+    {
+        printf("Item: %i\n", dequeue());
     }
+    show_items();
     cleanup();
 }
 
-void push(int item)
+void enqueue(int item)
 {
-    Node *n = malloc(sizeof(Node));
-    n->data = item;
-    n->next = head;
-    head = n;
-}
-
-int pop()
-{
+    Node *old_tail = tail;
+    tail = malloc(sizeof(Node));
+    tail->data = item;
+    tail->next = NULL;
     if (head == NULL)
     {
-        return -1;
+        head = tail;
     }
+    else
+    {
+        old_tail->next = tail;
+    }
+}
+
+int dequeue()
+{
     Node *t = head;
     int data = head->data;
     head = head->next;
